@@ -470,9 +470,7 @@
     </div>
 
     <script>
-        // Simple visitor counter backed by CountAPI
-        const VISIT_NAMESPACE = 'azkaaraftersalah';
-        const VISIT_KEY = 'supplication_total_visits';
+        // Visitor counter via Azure Functions API (/api/visits)
 
         function formatDateYYYYMMDD(date = new Date()) {
             const y = date.getFullYear();
@@ -483,7 +481,7 @@
 
         async function getVisits() {
             try {
-                const res = await fetch(`https://api.countapi.xyz/get/${VISIT_NAMESPACE}/${VISIT_KEY}`);
+                const res = await fetch('/api/visits');
                 const data = await res.json();
                 if (data && typeof data.value === 'number') {
                     document.getElementById('visit-count').textContent = data.value;
@@ -498,7 +496,7 @@
                 const today = formatDateYYYYMMDD();
                 const last = localStorage.getItem('visit_mark');
                 if (last === today) return; // already counted today
-                const res = await fetch(`https://api.countapi.xyz/hit/${VISIT_NAMESPACE}/${VISIT_KEY}`);
+                const res = await fetch('/api/visits', { method: 'POST' });
                 const data = await res.json();
                 if (data && typeof data.value === 'number') {
                     document.getElementById('visit-count').textContent = data.value;
@@ -699,10 +697,6 @@
         }
 
         function nextDua() {
-            // When user starts reading (first forward move), count a visit (max once/day)
-            if (currentIndex === 0) {
-                incrementVisitsOncePerDay();
-            }
             if (currentIndex < duas.length - 1) {
                 currentIndex++;
                 updateDisplay();
@@ -724,8 +718,8 @@
 
         // Initialize on load
         updateDisplay();
-        // Show current total visits on load
-        getVisits();
+        // Count visit on page load (once per day) and refresh display
+        incrementVisitsOncePerDay().finally(getVisits);
     </script>
 </body>
 </html>

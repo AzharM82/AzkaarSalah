@@ -16,6 +16,6 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_ROCK_034396B1E }}
           action: upload
           app_location: Supplication After Prayers
-          api_location: ''
+          api_location: api
           app_build_command: 'echo "No build"'
           output_location: .
