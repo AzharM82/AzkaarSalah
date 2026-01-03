@@ -26,21 +26,31 @@ module.exports = async function (context, req) {
   try {
     if (req.method === 'GET') {
       const { status, data } = await httpJson(`https://api.countapi.xyz/get/${namespace}/${key}`, 'GET');
-      context.res = {
-        status: status === 200 ? 200 : 500,
-        headers: { 'Content-Type': 'application/json' },
-        body: { value: data.value ?? null }
-      };
+      if (status === 200 && typeof data.value === 'number') {
+        context.res = { status: 200, headers: { 'Content-Type': 'application/json' }, body: { value: data.value } };
+      } else if (status === 404) {
+        // Key not created yet; report zero instead of 500
+        context.res = { status: 200, headers: { 'Content-Type': 'application/json' }, body: { value: 0 } };
+      } else {
+        context.log('GET visits error', status, data);
+        context.res = { status: 500, headers: { 'Content-Type': 'application/json' }, body: { error: 'failed_get', status } };
+      }
       return;
     }
 
     if (req.method === 'POST') {
-      const { status, data } = await httpJson(`https://api.countapi.xyz/hit/${namespace}/${key}`, 'GET');
-      context.res = {
-        status: status === 200 ? 200 : 500,
-        headers: { 'Content-Type': 'application/json' },
-        body: { value: data.value ?? null }
-      };
+      let { status, data } = await httpJson(`https://api.countapi.xyz/hit/${namespace}/${key}`, 'GET');
+      if (!(status === 200 && typeof data.value === 'number')) {
+        // Attempt to create then hit again
+        await httpJson(`https://api.countapi.xyz/create?namespace=${encodeURIComponent(namespace)}&key=${encodeURIComponent(key)}`, 'GET');
+        ({ status, data } = await httpJson(`https://api.countapi.xyz/hit/${namespace}/${key}`, 'GET'));
+      }
+      if (status === 200 && typeof data.value === 'number') {
+        context.res = { status: 200, headers: { 'Content-Type': 'application/json' }, body: { value: data.value } };
+      } else {
+        context.log('POST visits error', status, data);
+        context.res = { status: 500, headers: { 'Content-Type': 'application/json' }, body: { error: 'failed_post', status } };
+      }
       return;
     }
 
