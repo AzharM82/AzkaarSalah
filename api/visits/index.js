@@ -8,13 +8,13 @@ function httpJson(url, method = 'GET') {
       res.on('end', () => {
         try {
           const parsed = JSON.parse(data);
-          resolve({ status: res.statusCode, data: parsed });
+          resolve({ status: res.statusCode, data: parsed, raw: data });
         } catch (_) {
-          resolve({ status: res.statusCode, data: {} });
+          resolve({ status: res.statusCode, data: {}, raw: data });
         }
       });
     });
-    req.on('error', () => resolve({ status: 500, data: {} }));
+    req.on('error', (err) => resolve({ status: 500, data: { error: 'request_error', message: String(err && err.message || err) }, raw: '' }));
     req.end();
   });
 }
@@ -25,31 +25,31 @@ module.exports = async function (context, req) {
 
   try {
     if (req.method === 'GET') {
-      const { status, data } = await httpJson(`https://api.countapi.xyz/get/${namespace}/${key}`, 'GET');
+      const { status, data, raw } = await httpJson(`https://api.countapi.xyz/get/${namespace}/${key}`, 'GET');
       if (status === 200 && typeof data.value === 'number') {
         context.res = { status: 200, headers: { 'Content-Type': 'application/json' }, body: { value: data.value } };
       } else if (status === 404) {
         // Key not created yet; report zero instead of 500
         context.res = { status: 200, headers: { 'Content-Type': 'application/json' }, body: { value: 0 } };
       } else {
-        context.log('GET visits error', status, data);
-        context.res = { status: 500, headers: { 'Content-Type': 'application/json' }, body: { error: 'failed_get', status } };
+        context.log('GET visits error', status, data, raw);
+        context.res = { status: 500, headers: { 'Content-Type': 'application/json' }, body: { error: 'failed_get', status, data, raw } };
       }
       return;
     }
 
     if (req.method === 'POST') {
-      let { status, data } = await httpJson(`https://api.countapi.xyz/hit/${namespace}/${key}`, 'GET');
+      let { status, data, raw } = await httpJson(`https://api.countapi.xyz/hit/${namespace}/${key}`, 'GET');
       if (!(status === 200 && typeof data.value === 'number')) {
         // Attempt to create then hit again
         await httpJson(`https://api.countapi.xyz/create?namespace=${encodeURIComponent(namespace)}&key=${encodeURIComponent(key)}`, 'GET');
-        ({ status, data } = await httpJson(`https://api.countapi.xyz/hit/${namespace}/${key}`, 'GET'));
+        ({ status, data, raw } = await httpJson(`https://api.countapi.xyz/hit/${namespace}/${key}`, 'GET'));
       }
       if (status === 200 && typeof data.value === 'number') {
         context.res = { status: 200, headers: { 'Content-Type': 'application/json' }, body: { value: data.value } };
       } else {
-        context.log('POST visits error', status, data);
-        context.res = { status: 500, headers: { 'Content-Type': 'application/json' }, body: { error: 'failed_post', status } };
+        context.log('POST visits error', status, data, raw);
+        context.res = { status: 500, headers: { 'Content-Type': 'application/json' }, body: { error: 'failed_post', status, data, raw } };
       }
       return;
     }
