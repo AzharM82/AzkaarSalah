@@ -52,6 +52,31 @@
             animation: slideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
+        /* Visit Counter */
+        .visit-counter {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #d1fae5;
+            color: #065f46;
+            padding: 0.4rem 0.75rem;
+            border-radius: 9999px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+            font-size: 0.85rem;
+            display: inline-flex;
+            gap: 0.4rem;
+            align-items: center;
+            z-index: 50;
+        }
+        .visit-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+        }
+
         /* Header */
         .header {
             text-align: center;
@@ -350,6 +375,12 @@
     </style>
 </head>
 <body>
+    <!-- Total Visit Counter -->
+    <div class="visit-counter" title="Unique starts counted once per day">
+        <span class="visit-dot"></span>
+        <span>Visits:</span>
+        <span id="visit-count">--</span>
+    </div>
     <div class="container">
         <!-- Header -->
         <div class="header">
@@ -439,6 +470,45 @@
     </div>
 
     <script>
+        // Simple visitor counter backed by CountAPI
+        const VISIT_NAMESPACE = 'azkaaraftersalah';
+        const VISIT_KEY = 'supplication_total_visits';
+
+        function formatDateYYYYMMDD(date = new Date()) {
+            const y = date.getFullYear();
+            const m = String(date.getMonth() + 1).padStart(2, '0');
+            const d = String(date.getDate()).padStart(2, '0');
+            return `${y}-${m}-${d}`;
+        }
+
+        async function getVisits() {
+            try {
+                const res = await fetch(`https://api.countapi.xyz/get/${VISIT_NAMESPACE}/${VISIT_KEY}`);
+                const data = await res.json();
+                if (data && typeof data.value === 'number') {
+                    document.getElementById('visit-count').textContent = data.value;
+                }
+            } catch (e) {
+                // ignore display errors
+            }
+        }
+
+        async function incrementVisitsOncePerDay() {
+            try {
+                const today = formatDateYYYYMMDD();
+                const last = localStorage.getItem('visit_mark');
+                if (last === today) return; // already counted today
+                const res = await fetch(`https://api.countapi.xyz/hit/${VISIT_NAMESPACE}/${VISIT_KEY}`);
+                const data = await res.json();
+                if (data && typeof data.value === 'number') {
+                    document.getElementById('visit-count').textContent = data.value;
+                    localStorage.setItem('visit_mark', today);
+                }
+            } catch (e) {
+                // ignore increment errors
+            }
+        }
+
         const duas = [
             {
                 id: 1,
@@ -629,6 +699,10 @@
         }
 
         function nextDua() {
+            // When user starts reading (first forward move), count a visit (max once/day)
+            if (currentIndex === 0) {
+                incrementVisitsOncePerDay();
+            }
             if (currentIndex < duas.length - 1) {
                 currentIndex++;
                 updateDisplay();
@@ -650,6 +724,8 @@
 
         // Initialize on load
         updateDisplay();
+        // Show current total visits on load
+        getVisits();
     </script>
 </body>
 </html>
