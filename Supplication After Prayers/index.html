@@ -19,7 +19,7 @@
         body {
             font-family: 'Crimson Pro', serif;
             min-height: 100vh;
-            background: linear-gradient(to bottom right, #ecfdf5, #f0fdfa, #ecfeff);
+            background: linear-gradient(to bottom right, #fdf9f0, #faf3e1, #f4e9d0);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -58,8 +58,8 @@
             top: 12px;
             right: 12px;
             background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #d1fae5;
-            color: #065f46;
+            border: 1px solid #e6d3a8;
+            color: #92400e;
             padding: 0.4rem 0.75rem;
             border-radius: 9999px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
@@ -73,8 +73,8 @@
             width: 0.5rem;
             height: 0.5rem;
             border-radius: 9999px;
-            background: linear-gradient(135deg, #10b981, #06b6d4);
-            box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+            background: linear-gradient(135deg, #d4af37, #b45309);
+            box-shadow: 0 0 8px rgba(180, 83, 9, 0.4);
         }
 
         /* Header */
@@ -88,7 +88,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #047857, #0e7490, #0369a1);
+            background: linear-gradient(to right, #92400e, #b45309, #d97706);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -97,12 +97,12 @@
         .header .arabic-subtitle {
             font-family: 'Amiri', serif;
             font-size: 1.25rem;
-            color: #047857;
+            color: #92400e;
             direction: rtl;
         }
 
         .header .verse {
-            color: #0d9488;
+            color: #a16207;
             margin-top: 0.5rem;
             font-style: italic;
             font-size: 1.125rem;
@@ -118,25 +118,25 @@
             justify-content: space-between;
             margin-bottom: 0.5rem;
             font-size: 0.875rem;
-            color: #047857;
+            color: #92400e;
         }
 
         .progress-bar-container {
             width: 100%;
-            background: #d1fae5;
+            background: #f0dfb8;
             border-radius: 9999px;
             height: 0.5rem;
             overflow: hidden;
         }
 
         .progress-bar {
-            background: linear-gradient(90deg, #10b981, #06b6d4);
+            background: linear-gradient(90deg, #d4af37, #b45309);
             background-size: 200% 100%;
             animation: shimmer 3s linear infinite;
             height: 100%;
             transition: width 0.5s ease-out;
             border-radius: 9999px;
-            box-shadow: 0 2px 12px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 2px 12px rgba(180, 83, 9, 0.3);
         }
 
         /* Card */
@@ -145,20 +145,20 @@
             border-radius: 1.5rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
             overflow: hidden;
-            border: 1px solid #d1fae5;
+            border: 1px solid #e6d3a8;
             animation: slideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .card-content {
             background-image: 
-                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.03) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(180, 83, 9, 0.05) 0%, transparent 50%);
             padding: 3rem 2rem;
         }
 
         /* Ornament */
         .ornament {
-            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(180, 83, 9, 0.35), transparent);
             height: 1px;
             position: relative;
             margin: 2rem 0;
@@ -172,9 +172,9 @@
             transform: translateX(-50%);
             width: 8px;
             height: 8px;
-            background: linear-gradient(135deg, #10b981, #06b6d4);
+            background: linear-gradient(135deg, #d4af37, #b45309);
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 0 10px rgba(180, 83, 9, 0.4);
         }
 
         /* Arabic Text */
@@ -184,18 +184,18 @@
             line-height: 2.5;
             text-align: center;
             margin-bottom: 1.5rem;
-            color: #064e3b;
+            color: #573a08;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             direction: rtl;
         }
 
         /* Translation Box */
         .translation {
-            background: linear-gradient(to bottom right, #ecfdf5, #f0fdfa);
+            background: linear-gradient(to bottom right, #fffdf6, #faf4e4);
             border-radius: 1rem;
             padding: 2rem;
             margin-bottom: 1.5rem;
-            border: 1px solid #d1fae5;
+            border: 1px solid #e6d3a8;
         }
 
         .translation p {
@@ -217,14 +217,14 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            color: #047857;
+            color: #92400e;
         }
 
         .metadata-dot {
             width: 0.5rem;
             height: 0.5rem;
             border-radius: 50%;
-            background: #10b981;
+            background: #d4af37;
         }
 
         .gold-accent {
@@ -236,7 +236,7 @@
         }
 
         .source-text {
-            color: #0d9488;
+            color: #a16207;
             font-size: 0.875rem;
             font-style: italic;
         }
@@ -257,7 +257,7 @@
 
         /* Navigation */
         .navigation {
-            background: linear-gradient(to right, #059669, #0d9488);
+            background: linear-gradient(to right, #b45309, #d97706);
             padding: 1.5rem;
             display: flex;
             justify-content: space-between;
@@ -271,7 +271,7 @@
             gap: 0.5rem;
             padding: 0.75rem 1.5rem;
             background: white;
-            color: #047857;
+            color: #92400e;
             border: none;
             border-radius: 0.75rem;
             font-weight: 600;
@@ -282,7 +282,7 @@
         }
 
         .nav-button:hover:not(:disabled) {
-            background: #ecfdf5;
+            background: #fdf3e0;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             transform: translateY(-2px);
         }
@@ -341,8 +341,19 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            body {
+                align-items: flex-start;
+                padding: 0.75rem;
+            }
+
+            .visit-counter {
+                position: static;
+                width: fit-content;
+                margin: 0 auto 1rem;
+            }
+
             .header h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
             }
 
             .arabic-text {
@@ -351,15 +362,32 @@
             }
 
             .card-content {
-                padding: 2rem 1.5rem;
+                padding: 2rem 1.25rem;
+            }
+
+            .translation {
+                padding: 1.25rem;
             }
 
             .translation p {
                 font-size: 1rem;
             }
 
-            .nav-button span.hide-mobile {
-                display: none;
+            .navigation {
+                padding: 1rem;
+                gap: 0.5rem;
+            }
+
+            .nav-button {
+                padding: 0.75rem 1rem;
+                font-size: 0.95rem;
+                min-height: 44px;
+                flex: 1;
+                justify-content: center;
+            }
+
+            .references {
+                padding: 1.25rem;
             }
         }
 
@@ -386,8 +414,8 @@
         .references {
             margin-top: 2.5rem;
             padding: 1.5rem 2rem;
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid #e5e7eb;
+            background: rgba(255, 253, 246, 0.75);
+            border: 1px solid #e6d3a8;
             border-radius: 1rem;
             font-size: 0.85rem;
             line-height: 1.9;
@@ -408,12 +436,12 @@
 </head>
 <body>
     <!-- Total Visit Counter -->
+    <div class="container">
     <div class="visit-counter" title="Unique starts counted once per day">
         <span class="visit-dot"></span>
         <span>Visits:</span>
         <span id="visit-count">--</span>
     </div>
-    <div class="container">
         <!-- Header -->
         <div class="header">
             <h1>Post-Prayer Supplications</h1>
@@ -459,7 +487,7 @@
                     </div>
                     
                     <div class="metadata-item source-text" id="source-section">
-                        <div class="metadata-dot" style="width: 0.375rem; height: 0.375rem; background: #0d9488;"></div>
+                        <div class="metadata-dot" style="width: 0.375rem; height: 0.375rem; background: #b45309;"></div>
                         <span id="source-text"></span>
                     </div>
                     
@@ -500,7 +528,7 @@
             <p>May Allah accept your prayers and grant you His blessings.</p>
             <p class="ameen">آمین یا رب العالمین</p>
         </div>
-    </div>
+
         <!-- References -->
         <div class="references">
             <h3>References</h3>
@@ -512,6 +540,7 @@
                 <li>IslamQA fatwa 6544 &mdash; ruling on &ldquo;Allahumma ajirni min an-nar&rdquo; (graded weak; omitted above)</li>
             </ul>
         </div>
+    </div>
 
     <script>
         // Visitor counter via Azure Functions API (/api/visits)
