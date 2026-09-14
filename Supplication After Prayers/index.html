@@ -19,7 +19,7 @@
         body {
             font-family: 'Crimson Pro', serif;
             min-height: 100vh;
-            background: linear-gradient(to bottom right, #fdf9f0, #faf3e1, #f4e9d0);
+            background: linear-gradient(to bottom right, #ffffff, #f9fafb, #f3f4f6);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -58,8 +58,8 @@
             top: 12px;
             right: 12px;
             background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #e6d3a8;
-            color: #92400e;
+            border: 1px solid #e5e7eb;
+            color: #374151;
             padding: 0.4rem 0.75rem;
             border-radius: 9999px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
@@ -73,8 +73,8 @@
             width: 0.5rem;
             height: 0.5rem;
             border-radius: 9999px;
-            background: linear-gradient(135deg, #d4af37, #b45309);
-            box-shadow: 0 0 8px rgba(180, 83, 9, 0.4);
+            background: linear-gradient(135deg, #9ca3af, #4b5563);
+            box-shadow: 0 0 8px rgba(17, 24, 39, 0.25);
         }
 
         /* Header */
@@ -88,7 +88,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #92400e, #b45309, #d97706);
+            background: linear-gradient(to right, #111827, #4b5563, #9ca3af);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -97,12 +97,12 @@
         .header .arabic-subtitle {
             font-family: 'Amiri', serif;
             font-size: 1.25rem;
-            color: #92400e;
+            color: #374151;
             direction: rtl;
         }
 
         .header .verse {
-            color: #a16207;
+            color: #6b7280;
             margin-top: 0.5rem;
             font-style: italic;
             font-size: 1.125rem;
@@ -118,25 +118,25 @@
             justify-content: space-between;
             margin-bottom: 0.5rem;
             font-size: 0.875rem;
-            color: #92400e;
+            color: #374151;
         }
 
         .progress-bar-container {
             width: 100%;
-            background: #f0dfb8;
+            background: #e5e7eb;
             border-radius: 9999px;
             height: 0.5rem;
             overflow: hidden;
         }
 
         .progress-bar {
-            background: linear-gradient(90deg, #d4af37, #b45309);
+            background: linear-gradient(90deg, #6b7280, #111827);
             background-size: 200% 100%;
             animation: shimmer 3s linear infinite;
             height: 100%;
             transition: width 0.5s ease-out;
             border-radius: 9999px;
-            box-shadow: 0 2px 12px rgba(180, 83, 9, 0.3);
+            box-shadow: 0 2px 12px rgba(17, 24, 39, 0.25);
         }
 
         /* Card */
@@ -145,20 +145,20 @@
             border-radius: 1.5rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
             overflow: hidden;
-            border: 1px solid #e6d3a8;
+            border: 1px solid #e5e7eb;
             animation: slideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .card-content {
             background-image: 
-                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(180, 83, 9, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(17, 24, 39, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(107, 114, 128, 0.04) 0%, transparent 50%);
             padding: 3rem 2rem;
         }
 
         /* Ornament */
         .ornament {
-            background: linear-gradient(90deg, transparent, rgba(180, 83, 9, 0.35), transparent);
+            background: linear-gradient(90deg, transparent, rgba(107, 114, 128, 0.45), transparent);
             height: 1px;
             position: relative;
             margin: 2rem 0;
@@ -172,9 +172,9 @@
             transform: translateX(-50%);
             width: 8px;
             height: 8px;
-            background: linear-gradient(135deg, #d4af37, #b45309);
+            background: linear-gradient(135deg, #9ca3af, #4b5563);
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(180, 83, 9, 0.4);
+            box-shadow: 0 0 10px rgba(17, 24, 39, 0.25);
         }
 
         /* Arabic Text */
@@ -184,18 +184,18 @@
             line-height: 2.5;
             text-align: center;
             margin-bottom: 1.5rem;
-            color: #573a08;
+            color: #111827;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             direction: rtl;
         }
 
         /* Translation Box */
         .translation {
-            background: linear-gradient(to bottom right, #fffdf6, #faf4e4);
+            background: linear-gradient(to bottom right, #ffffff, #f9fafb);
             border-radius: 1rem;
             padding: 2rem;
             margin-bottom: 1.5rem;
-            border: 1px solid #e6d3a8;
+            border: 1px solid #e5e7eb;
         }
 
         .translation p {
@@ -217,18 +217,18 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            color: #92400e;
+            color: #374151;
         }
 
         .metadata-dot {
             width: 0.5rem;
             height: 0.5rem;
             border-radius: 50%;
-            background: #d4af37;
+            background: #9ca3af;
         }
 
         .gold-accent {
-            background: linear-gradient(135deg, #d4af37, #f4e4a6, #d4af37);
+            background: linear-gradient(135deg, #4b5563, #9ca3af, #4b5563);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -236,7 +236,7 @@
         }
 
         .source-text {
-            color: #a16207;
+            color: #6b7280;
             font-size: 0.875rem;
             font-style: italic;
         }
@@ -244,20 +244,20 @@
         .note-box {
             margin-top: 1rem;
             padding: 1rem;
-            background: #fef3c7;
-            border: 1px solid #fde68a;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
             border-radius: 0.75rem;
         }
 
         .note-box p {
             font-size: 0.875rem;
-            color: #78350f;
+            color: #4b5563;
             text-align: center;
         }
 
         /* Navigation */
         .navigation {
-            background: linear-gradient(to right, #b45309, #d97706);
+            background: linear-gradient(to right, #374151, #111827);
             padding: 1.5rem;
             display: flex;
             justify-content: space-between;
@@ -271,7 +271,7 @@
             gap: 0.5rem;
             padding: 0.75rem 1.5rem;
             background: white;
-            color: #92400e;
+            color: #374151;
             border: none;
             border-radius: 0.75rem;
             font-weight: 600;
@@ -282,7 +282,7 @@
         }
 
         .nav-button:hover:not(:disabled) {
-            background: #fdf3e0;
+            background: #f3f4f6;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             transform: translateY(-2px);
         }
@@ -297,12 +297,12 @@
         }
 
         .reset-button {
-            background: #f59e0b;
+            background: #6b7280;
             color: white;
         }
 
         .reset-button:hover {
-            background: #d97706;
+            background: #4b5563;
         }
 
         .nav-button svg {
@@ -314,26 +314,26 @@
         .completion {
             margin-top: 2rem;
             text-align: center;
-            background: linear-gradient(to right, #fef3c7, #fed7aa);
+            background: linear-gradient(to right, #f9fafb, #e5e7eb);
             border-radius: 1rem;
             padding: 1.5rem;
-            border: 1px solid #fde68a;
+            border: 1px solid #e5e7eb;
             animation: slideIn 0.6s ease-out;
         }
 
         .completion h2 {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #78350f;
+            color: #4b5563;
             margin-bottom: 0.5rem;
         }
 
         .completion p {
-            color: #92400e;
+            color: #374151;
         }
 
         .completion .ameen {
-            color: #b45309;
+            color: #6b7280;
             font-size: 0.875rem;
             margin-top: 0.5rem;
             font-style: italic;
@@ -386,9 +386,6 @@
                 justify-content: center;
             }
 
-            .references {
-                padding: 1.25rem;
-            }
         }
 
         @media (min-width: 768px) {
@@ -407,31 +404,10 @@
             font-weight: 700;
             letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: #b45309;
+            color: #6b7280;
             margin-bottom: 1.25rem;
         }
     
-        .references {
-            margin-top: 2.5rem;
-            padding: 1.5rem 2rem;
-            background: rgba(255, 253, 246, 0.75);
-            border: 1px solid #e6d3a8;
-            border-radius: 1rem;
-            font-size: 0.85rem;
-            line-height: 1.9;
-            color: #6b7280;
-        }
-        .references h3 {
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: #b45309;
-            margin-bottom: 0.75rem;
-            text-align: center;
-        }
-        .references ul { list-style: none; padding: 0; margin: 0; }
-        .references li { text-align: center; }
     </style>
 </head>
 <body>
@@ -487,7 +463,7 @@
                     </div>
                     
                     <div class="metadata-item source-text" id="source-section">
-                        <div class="metadata-dot" style="width: 0.375rem; height: 0.375rem; background: #b45309;"></div>
+                        <div class="metadata-dot" style="width: 0.375rem; height: 0.375rem; background: #9ca3af;"></div>
                         <span id="source-text"></span>
                     </div>
                     
@@ -529,17 +505,6 @@
             <p class="ameen">آمین یا رب العالمین</p>
         </div>
 
-        <!-- References -->
-        <div class="references">
-            <h3>References</h3>
-            <ul>
-                <li>Fortress of the Muslim (Hisn al-Muslim), ch. 24 &ndash; 25 &mdash; primary source for the duas and their order</li>
-                <li>IslamQA fatwa 131850 &mdash; Adhkar recited after prayer (Ibn Baz&rsquo;s list)</li>
-                <li>IslamQA fatwa 104163 &mdash; What is meant by dhikr and du&rsquo;a at the end of the prayer</li>
-                <li>IslamQA fatwa 7886 &mdash; Du&rsquo;a after prayer (salawat after the adhkar)</li>
-                <li>IslamQA fatwa 6544 &mdash; ruling on &ldquo;Allahumma ajirni min an-nar&rdquo; (graded weak; omitted above)</li>
-            </ul>
-        </div>
     </div>
 
     <script>
