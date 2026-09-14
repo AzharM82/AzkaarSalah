@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Prayer Supplications - Duas After Salah</title>
+    <meta name="description" content="Complete collection of authentic supplications (duas) to recite after the five daily prayers">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            min-height: 100vh;
+            background: linear-gradient(to bottom right, #ffffff, #f2faf6, #e9f5ef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 48rem;
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .card-enter {
+            animation: slideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Visit Counter */
+        .visit-counter {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #d7e8df;
+            color: #047857;
+            padding: 0.4rem 0.75rem;
+            border-radius: 9999px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+            font-size: 0.85rem;
+            display: inline-flex;
+            gap: 0.4rem;
+            align-items: center;
+            z-index: 50;
+        }
+        .visit-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #d4af37, #059669);
+            box-shadow: 0 0 8px rgba(6, 78, 59, 0.25);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #064e3b, #059669, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .arabic-subtitle {
+            font-family: 'Amiri', serif;
+            font-size: 1.25rem;
+            color: #047857;
+            direction: rtl;
+        }
+
+        .header .verse {
+            color: #8a6d1c;
+            margin-top: 0.5rem;
+            font-style: italic;
+            font-size: 1.125rem;
+        }
+
+        /* Progress Bar */
+        .progress-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: #047857;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background: #d7e8df;
+            border-radius: 9999px;
+            height: 0.5rem;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #8a6d1c, #064e3b);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+            height: 100%;
+            transition: width 0.5s ease-out;
+            border-radius: 9999px;
+            box-shadow: 0 2px 12px rgba(6, 78, 59, 0.25);
+        }
+
+        /* Card */
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border: 1px solid #d7e8df;
+            animation: slideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .card-content {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(6, 78, 59, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(5, 150, 105, 0.04) 0%, transparent 50%);
+            padding: 3rem 2rem;
+        }
+
+        /* Ornament */
+        .ornament {
+            background: linear-gradient(90deg, transparent, rgba(5, 150, 105, 0.45), transparent);
+            height: 1px;
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .ornament::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #d4af37, #059669);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(6, 78, 59, 0.25);
+        }
+
+        /* Arabic Text */
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            line-height: 2.5;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #064e3b;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            direction: rtl;
+        }
+
+        /* Translation Box */
+        .translation {
+            background: linear-gradient(to bottom right, #ffffff, #f2faf6);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #d7e8df;
+        }
+
+        .translation p {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            color: #047857;
+            text-align: center;
+        }
+
+        /* Metadata */
+        .metadata {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: #047857;
+        }
+
+        .metadata-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: #d4af37;
+        }
+
+        .gold-accent {
+            background: linear-gradient(135deg, #059669, #d4af37, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .source-text {
+            color: #8a6d1c;
+            font-size: 0.875rem;
+            font-style: italic;
+        }
+
+        .note-box {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #e9f5ef;
+            border: 1px solid #d7e8df;
+            border-radius: 0.75rem;
+        }
+
+        .note-box p {
+            font-size: 0.875rem;
+            color: #059669;
+            text-align: center;
+        }
+
+        /* Navigation */
+        .navigation {
+            background: linear-gradient(to right, #047857, #064e3b);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            color: #047857;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .nav-button:hover:not(:disabled) {
+            background: #e9f5ef;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-button:active:not(:disabled) {
+            transform: scale(0.95);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .reset-button {
+            background: #8a6d1c;
+            color: white;
+        }
+
+        .reset-button:hover {
+            background: #059669;
+        }
+
+        .nav-button svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        /* Completion Message */
+        .completion {
+            margin-top: 2rem;
+            text-align: center;
+            background: linear-gradient(to right, #f2faf6, #d7e8df);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid #d7e8df;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .completion h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #059669;
+            margin-bottom: 0.5rem;
+        }
+
+        .completion p {
+            color: #047857;
+        }
+
+        .completion .ameen {
+            color: #8a6d1c;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                align-items: flex-start;
+                padding: 0.75rem;
+            }
+
+            .visit-counter {
+                position: static;
+                width: fit-content;
+                margin: 0 auto 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .arabic-text {
+                font-size: 1.5rem;
+                line-height: 2;
+            }
+
+            .card-content {
+                padding: 2rem 1.25rem;
+            }
+
+            .translation {
+                padding: 1.25rem;
+            }
+
+            .translation p {
+                font-size: 1rem;
+            }
+
+            .navigation {
+                padding: 1rem;
+                gap: 0.5rem;
+            }
+
+            .nav-button {
+                padding: 0.75rem 1rem;
+                font-size: 0.95rem;
+                min-height: 44px;
+                flex: 1;
+                justify-content: center;
+            }
+
+        }
+
+        @media (min-width: 768px) {
+            .header h1 {
+                font-size: 3rem;
+            }
+
+            .arabic-text {
+                font-size: 2.5rem;
+            }
+        }
+    
+        .section-label {
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #8a6d1c;
+            margin-bottom: 1.25rem;
+        }
+    
+    </style>
+</head>
+<body>
+    <!-- Total Visit Counter -->
+    <div class="container">
+    <div class="visit-counter" title="Unique starts counted once per day">
+        <span class="visit-dot"></span>
+        <span>Visits:</span>
+        <span id="visit-count">--</span>
+    </div>
+        <!-- Header -->
+        <div class="header">
+            <h1>Post-Prayer Supplications</h1>
+            <p class="arabic-subtitle">فَرْض نَمَاز کے بَعْد کے مَسْنُون اَذْکَار</p>
+            <p class="verse">"When you have completed the prayer, remember Allah" - Quran 4:103</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-section">
+            <div class="progress-info">
+                <span id="progress-text">Dua 1 of 16</span>
+                <span id="progress-percent">6%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar" style="width: 6.25%"></div>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card">
+            <div class="card-content">
+                <div class="section-label" id="section-label"></div>
+                <!-- Ornament Top -->
+                <div class="ornament"></div>
+
+                <!-- Arabic Text -->
+                <p class="arabic-text" id="arabic-text"></p>
+
+                <!-- Ornament Bottom -->
+                <div class="ornament"></div>
+
+                <!-- Translation -->
+                <div class="translation">
+                    <p id="english-text"></p>
+                </div>
+
+                <!-- Metadata -->
+                <div class="metadata">
+                    <div class="metadata-item" id="count-section">
+                        <div class="metadata-dot"></div>
+                        <span style="font-weight: 600;">Repetition:</span>
+                        <span class="gold-accent" id="count-text"></span>
+                    </div>
+                    
+                    <div class="metadata-item source-text" id="source-section">
+                        <div class="metadata-dot" style="width: 0.375rem; height: 0.375rem; background: #d4af37;"></div>
+                        <span id="source-text"></span>
+                    </div>
+                    
+                    <div class="note-box" id="note-section" style="display: none;">
+                        <p id="note-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="navigation">
+                <button class="nav-button" id="prev-btn" onclick="prevDua()">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                    <span class="hide-mobile">Previous</span>
+                </button>
+
+                <button class="nav-button reset-button" id="reset-btn" onclick="reset()" style="display: none;">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                    <span>Start Over</span>
+                </button>
+
+                <button class="nav-button" id="next-btn" onclick="nextDua()">
+                    <span class="hide-mobile">Next</span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Completion Message -->
+        <div class="completion" id="completion-msg" style="display: none;">
+            <h2>✨ You've completed all the supplications! ✨</h2>
+            <p>May Allah accept your prayers and grant you His blessings.</p>
+            <p class="ameen">آمین یا رب العالمین</p>
+        </div>
+
+    </div>
+
+    <script>
+        // Visitor counter via Azure Functions API (/api/visits)
+
+        function formatDateYYYYMMDD(date = new Date()) {
+            const y = date.getFullYear();
+            const m = String(date.getMonth() + 1).padStart(2, '0');
+            const d = String(date.getDate()).padStart(2, '0');
+            return `${y}-${m}-${d}`;
+        }
+
+        async function getVisits() {
+            try {
+                const res = await fetch('/api/visits');
+                const data = await res.json();
+                if (data && typeof data.value === 'number') {
+                    document.getElementById('visit-count').textContent = data.value;
+                }
+            } catch (e) {
+                // ignore display errors
+            }
+        }
+
+        async function incrementVisitsOncePerDay() {
+            try {
+                const today = formatDateYYYYMMDD();
+                const last = localStorage.getItem('visit_mark');
+                if (last === today) return; // already counted today
+                const res = await fetch('/api/visits', { method: 'POST' });
+                const data = await res.json();
+                if (data && typeof data.value === 'number') {
+                    document.getElementById('visit-count').textContent = data.value;
+                    localStorage.setItem('visit_mark', today);
+                }
+            } catch (e) {
+                // ignore increment errors
+            }
+        }
+
+        const duas = [{"arabic": "اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنْ عَذَابِ الْقَبْرِ، وَمِنْ عَذَابِ جَهَنَّمَ، وَمِنْ فِتْنَةِ الْمَحْيَا وَالْمَمَاتِ، وَمِنْ شَرِّ فِتْنَةِ الْمَسِيْحِ الدَّجَّالِ", "english": "O Allah, I seek refuge in You from the punishment of the grave, from the punishment of Hell, from the trials of life and death, and from the evil of the trial of the Dajjal.", "source": "Sahih Muslim 588, Sahih al-Bukhari 1377", "count": "Once", "notes": "The Prophet ﷺ instructed seeking refuge from these four after the last tashahhud", "section": "before", "id": 1}, {"arabic": "اَللّٰهُمَّ إِنِّيْ ظَلَمْتُ نَفْسِيْ ظُلْمًا كَثِيْرًا، وَلَا يَغْفِرُ الذُّنُوْبَ إِلَّا أَنْتَ، فَاغْفِرْ لِيْ مَغْفِرَةً مِنْ عِنْدِكَ، وَارْحَمْنِيْ، إِنَّكَ أَنْتَ الْغَفُوْرُ الرَّحِيْمُ", "english": "O Allah, I have greatly wronged myself, and none forgives sins but You. So grant me forgiveness from You and have mercy on me. Indeed, You are the Most Forgiving, the Most Merciful.", "source": "Sahih al-Bukhari 834, Sahih Muslim", "count": "Once", "notes": "Taught by the Prophet ﷺ to Abu Bakr as a dua to say in his prayer", "section": "before", "id": 2}, {"arabic": "اَللّٰهُمَّ اغْفِرْ لِيْ مَا قَدَّمْتُ وَمَا أَخَّرْتُ، وَمَا أَسْرَرْتُ وَمَا أَعْلَنْتُ، وَمَا أَسْرَفْتُ، وَمَا أَنْتَ أَعْلَمُ بِهِ مِنِّيْ، أَنْتَ الْمُقَدِّمُ، وَأَنْتَ الْمُؤَخِّرُ، لَا إِلٰهَ إِلَّا أَنْتَ", "english": "O Allah, forgive me what I have sent forth and what I have held back, what I have concealed and what I have done openly, what I have done in excess, and what You know better than I. You are the One who brings forward and the One who holds back; there is no deity but You.", "source": "Sahih Muslim 771", "count": "Once", "notes": "The Prophet ﷺ would say this between the tashahhud and the salam", "section": "before", "id": 3}, {"id": 4, "arabic": "اَللّٰهُمَّ أَعِنِّيْ عَلٰى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ", "english": "O Allah! Help me to remember You, to give thanks to You, and to worship You in the best manner.", "source": "Sunan Abu Dawud 2/86, Sunan an-Nasa'i 3/68 · IslamQA 104163", "count": "Once", "notes": "Recited before the tasleem — Fortress of the Muslim, ch. 24", "section": "before"}, {"id": 5, "arabic": "اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنَ الْبُخْلِ وَأَعُوْذُ بِكَ مِنَ الْجُبْنِ وَأَعُوْذُ بِكَ مِنْ أَنْ أُرَدَّ إِلٰى أَرْذَلِ الْعُمُرِ وَأَعُوْذُ بِكَ مِنْ فِتْنَةِ الدُّنْيَا وَعَذَابِ الْقَبْرِ", "english": "O Allah! I seek Your protection from miserliness, I seek Your protection from cowardice, I seek Your protection from being returned to a feeble old age, and I seek Your protection from the trials of this world and the punishment of the grave.", "source": "Sahih al-Bukhari (Fath al-Bari 6/35) · IslamQA 104163", "count": "Once", "notes": "Recited before the tasleem — Fortress of the Muslim, ch. 24", "section": "before"}, {"id": 6, "arabic": "أَسْتَغْفِرُ اللّٰهَ أَسْتَغْفِرُ اللّٰهَ أَسْتَغْفِرُ اللّٰهَ", "english": "I seek forgiveness from Allah (3 times)", "source": "Sahih Muslim 1/414 · IslamQA 131850", "count": "3 times", "notes": null, "section": "after"}, {"id": 7, "arabic": "اَللّٰهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ تَبَارَكْتَ يَاذَا الْجَلَالِ وَالْإِكْرَامِ", "english": "O Allah! You are Peace, and from You comes peace. Blessed are You, O Owner of Majesty and Honor.", "source": "Sahih Muslim 1/414 · IslamQA 131850", "count": "Once", "notes": null, "section": "after"}, {"id": 8, "arabic": "لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ ۞ اَللّٰهُمَّ لَا مَانِعَ لِمَا أَعْطَيْتَ وَلَا مُعْطِيَ لِمَا مَنَعْتَ وَلَا يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُّ", "english": "There is no god but Allah alone, with no partner or associate. His is the dominion and to Him be all praise, and He has power over all things. O Allah, there is none who can withhold what You give, and none may give what You have withheld; and the wealth of a wealthy person cannot benefit him against You.", "source": "Sahih al-Bukhari 1/255, Sahih Muslim 1/414 · IslamQA 131850", "count": "Once", "notes": null, "section": "after"}, {"id": 9, "arabic": "لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ ۞ لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللّٰهِ لَا إِلٰهَ إِلَّا اللّٰهُ وَلَا نَعْبُدُ إِلَّا إِيَّاهُ لَهُ النِّعْمَةُ وَلَهُ الْفَضْلُ وَلَهُ الثَّنَاءُ الْحَسَنُ ۞ لَا إِلٰهَ إِلَّا اللّٰهُ مُخْلِصِيْنَ لَهُ الدِّيْنَ وَلَوْ كَرِهَ الْكَافِرُوْنَ", "english": "There is no god but Allah alone, with no partner. His is the dominion and to Him be all praise, and He has power over all things. There is no power and no strength except through Allah. There is no god but Allah, and we worship none but Him. To Him belong blessings and favor, and to Him belongs excellent praise. There is no god but Allah, making our devotion sincerely for Him, even if the disbelievers detest it.", "source": "Sahih Muslim 1/415 · IslamQA 131850", "count": "Once", "notes": null, "section": "after"}, {"id": 10, "arabic": "سُبْحَانَ اللّٰهِ ۞ اَلْحَمْدُ لِلّٰهِ ۞ اَللّٰهُ أَكْبَرُ", "english": "Glory be to Allah (33 times) • All praise be to Allah (33 times) • Allah is the Greatest (33 times)", "source": "Sahih Muslim 1/418 · IslamQA 131850, 104163", "count": "33 times each", "notes": "Then complete 100 by saying:", "section": "after"}, {"id": 11, "arabic": "لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ", "english": "There is no god but Allah alone, with no partner. His is the dominion and to Him be all praise, and He has power over all things.", "source": "Sahih Muslim 1/418 · IslamQA 131850, 104163", "count": "Once (to complete 100)", "notes": "After the 33 Tasbihat", "section": "after"}, {"id": 12, "arabic": "قُلْ هُوَ اللّٰهُ أَحَدٌ ۞ اَللّٰهُ الصَّمَدُ ۞ لَمْ يَلِدْ وَلَمْ يُولَدْ ۞ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ", "english": "Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born, nor is there to Him any equivalent.", "source": "Sunan Abu Dawud 2/86, Sunan an-Nasa'i 3/68 · IslamQA 131850", "count": "Once", "notes": "Surah Al-Ikhlas (112) - After every fard prayer", "section": "after"}, {"id": 13, "arabic": "قُلْ أَعُوْدُ بِرَبِّ الْفَلَقِ ۞ مِنْ شَرِّ مَا خَلَقَ ۞ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۞ وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۞ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ", "english": "Say: I seek refuge in the Lord of daybreak from the evil of that which He created, and from the evil of darkness when it settles, and from the evil of the blowers in knots, and from the evil of an envier when he envies.", "source": "Sunan Abu Dawud 2/86, Sunan an-Nasa'i 3/68 · IslamQA 131850", "count": "3 times", "notes": "Surah Al-Falaq (113) - After Fajr and Maghrib prayers", "section": "after"}, {"id": 14, "arabic": "قُلْ أَعُوْدُ بِرَبِّ النَّاسِ ۞ مَلِكِ النَّاسِ ۞ إِلٰهِ النَّاسِ ۞ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۞ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۞ مِنَ الْجِنَّةِ وَالنَّاسِ", "english": "Say: I seek refuge in the Lord of mankind, the Sovereign of mankind, the God of mankind, from the evil of the retreating whisperer who whispers into the breasts of mankind - from among the jinn and mankind.", "source": "Sunan Abu Dawud 2/86, Sunan an-Nasa'i 3/68 · IslamQA 131850", "count": "3 times", "notes": "Surah An-Nas (114) - After Fajr and Maghrib prayers", "section": "after"}, {"id": 15, "arabic": "اَللّٰهُ لَا إِلٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّوْمُ ۞ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۞ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۞ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۞ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۞ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۞ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۞ وَلَا يَئُودُهُ حِفْظُهُمَا ۞ وَهُوَ الْعَلِيُّ الْعَظِيمُ", "english": "Allah - there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Throne extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.", "source": "Sunan an-Nasa'i ('Amal al-Yawm wal-Laylah no. 100) · IslamQA 131850, 104163", "count": "Once", "notes": "Ayat al-Kursi (Quran 2:255)", "section": "after"}, {"id": 16, "arabic": "لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ يُحْيِي وَيُمِيْتُ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ", "english": "There is no god but Allah alone, with no partner or associate. His is the dominion and to Him be all praise. He gives life and death, and He has power over all things.", "source": "At-Tirmidhi 5/515, Musnad Ahmad 4/227 · IslamQA 131850, 104163", "count": "10 times", "notes": "After Fajr and Maghrib prayers", "section": "after"}, {"id": 17, "arabic": "اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا طَيِّبًا وَعَمَلًا مُتَقَبَّلًا", "english": "O Allah! I ask You for beneficial knowledge, lawful provision, and accepted deeds.", "source": "Sunan Ibn Majah (Sahih Ibn Majah 1/152)", "count": "Once", "notes": "After Fajr prayer", "section": "after"}, {"id": 18, "section": "after", "arabic": "اَللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ وَّعَلٰى اٰلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلٰى اِبْرَاهِيْمَ وَعَلٰى اٰلِ اِبْرَاهِيْمَ اِنَّكَ حَمِيْدٌ مَّجِيْدٌ ۞ اَللّٰهُمَّ بَارِكْ عَلٰى مُحَمَّدٍ وَّعَلٰى اٰلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلٰى اِبْرَاهِيْمَ وَعَلٰى اٰلِ اِبْرَاهِيْمَ اِنَّكَ حَمِيْدٌ مَّجِيْدٌ", "english": "O Allah, send prayers upon Muhammad and upon the family of Muhammad, as You sent prayers upon Ibrahim and upon the family of Ibrahim; indeed, You are Praiseworthy, Glorious. O Allah, bless Muhammad and the family of Muhammad, as You blessed Ibrahim and the family of Ibrahim; indeed, You are Praiseworthy, Glorious.", "source": "Sahih al-Bukhari, Sahih Muslim · IslamQA 7886 (quoting Ibn al-Qayyim)", "count": "Once", "notes": "Mustahabb after completing the adhkar — then make du'a as you wish"}];;;;
+
+        let currentIndex = 0;
+
+        function updateDisplay() {
+            const dua = duas[currentIndex];
+            const progress = ((currentIndex + 1) / duas.length) * 100;
+
+            // Update text
+            document.getElementById('section-label').textContent = dua.section === 'before' ? 'Before the Salam' : 'After the Salah';
+            document.getElementById('arabic-text').textContent = dua.arabic;
+            document.getElementById('english-text').textContent = dua.english;
+            
+            // Update metadata
+            if (dua.count) {
+                document.getElementById('count-text').textContent = dua.count;
+                document.getElementById('count-section').style.display = 'flex';
+            } else {
+                document.getElementById('count-section').style.display = 'none';
+            }
+
+            if (dua.source) {
+                document.getElementById('source-text').textContent = 'Source: ' + dua.source;
+                document.getElementById('source-section').style.display = 'flex';
+            } else {
+                document.getElementById('source-section').style.display = 'none';
+            }
+
+            if (dua.notes) {
+                document.getElementById('note-text').innerHTML = '<strong>Note:</strong> ' + dua.notes;
+                document.getElementById('note-section').style.display = 'block';
+            } else {
+                document.getElementById('note-section').style.display = 'none';
+            }
+
+            // Update progress
+            document.getElementById('progress-text').textContent = `Dua ${currentIndex + 1} of ${duas.length}`;
+            document.getElementById('progress-percent').textContent = `${Math.round(progress)}%`;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+
+            // Update buttons
+            document.getElementById('prev-btn').disabled = currentIndex === 0;
+            document.getElementById('next-btn').disabled = currentIndex === duas.length - 1;
+
+            // Show/hide reset button and completion message
+            if (currentIndex === duas.length - 1) {
+                document.getElementById('reset-btn').style.display = 'flex';
+                document.getElementById('completion-msg').style.display = 'block';
+            } else {
+                document.getElementById('reset-btn').style.display = 'none';
+                document.getElementById('completion-msg').style.display = 'none';
+            }
+
+            // Re-trigger animation
+            const card = document.querySelector('.card');
+            card.style.animation = 'none';
+            setTimeout(() => {
+                card.style.animation = 'slideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            }, 10);
+        }
+
+        function nextDua() {
+            if (currentIndex < duas.length - 1) {
+                currentIndex++;
+                updateDisplay();
+            }
+        }
+
+        function prevDua() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateDisplay();
+            }
+        }
+
+        function reset() {
+            currentIndex = 0;
+            updateDisplay();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize on load
+        updateDisplay();
+        // Count visit on page load (once per day) and refresh display
+        incrementVisitsOncePerDay().finally(getVisits);
+    </script>
+</body>
+</html>
+
